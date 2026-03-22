@@ -59,12 +59,7 @@ export default function WeArePico() {
 
         {/* Description - lighter weight, larger, spacious line height */}
         <p className="mx-auto   text-center font-medium text-white text-[22px] md:text-[30px] leading-[1.6]  mb-24 md:mb-32">
-         At 11th Hour, we turn ideas into unforgettable experiences. We believe every event tells a story, and our goal is to make that story meaningful, engaging, and memorable.
-         We specialize in creating events that connect people and leave a lasting impression. Whether it’s a corporate event, conference, award ceremony, product launch, or team-building activity, we focus on delivering everything with creativity and precision.
-         With strong experience and a passion for excellence, we have built our reputation on quality, creativity, and attention to detail. We understand that great events don’t happen by chance — they are carefully planned and perfectly executed.
-         Every event begins with a vision. Our team works closely with clients to bring that vision to life through thoughtful planning, smart design, and smooth coordination.
-         From concept to completion, we manage everything — including venue selection, décor, entertainment, and overall execution — so you can enjoy a seamless and stress-free experience.
-         At 11th Hour, we don’t just organize events — we create moments that people remember.
+         At 11th Hour, we turn ideas into unforgettable events that inspire and connect people. From planning to execution, we handle every detail with creativity and precision. With strong experience and a passion for quality, we deliver seamless, memorable experiences that leave a lasting impression.
         </p>
 
         
