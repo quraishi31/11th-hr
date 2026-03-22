@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Linkedin, Facebook, Twitter, Instagram, Paintbrush as Pinterest, Youtube, ArrowUp } from 'lucide-react'
+import { Linkedin, Facebook, Twitter, Instagram, Youtube, ArrowUp } from 'lucide-react'
 import { Logo } from './Logo'
 
 export function Footer() {
@@ -10,12 +10,11 @@ export function Footer() {
   }
 
   const socialLinks = [
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Twitter, href: '#', label: 'X' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Pinterest, href: '#', label: 'Pinterest' },
-    { icon: Youtube, href: '#', label: 'YouTube' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/11thhourpk', label: 'LinkedIn' },
+    { icon: Facebook, href: 'https://www.facebook.com/11thhourpk', label: 'Facebook' },
+    { icon: Twitter, href: 'https://x.com/11thHourpk', label: 'X' },
+    { icon: Instagram, href: 'https://www.instagram.com/11thhourpk/', label: 'Instagram' },
+    { icon: Youtube, href: 'http://www.youtube.com/@11thHourpk', label: 'YouTube' },
   ]
 
   return (
@@ -32,7 +31,7 @@ export function Footer() {
 
             {/* Description */}
             <p className="text-base md:text-lg text-white leading-relaxed max-w-xl">
-              Pico Group activates brands by using a strategic combination of experience design, brand engagement and digital enablement to create extraordinary experiences that emotionally connect with audiences.
+              11Th Hour activates brands by using a strategic combination of experience design, brand engagement and digital enablement to create extraordinary experiences that emotionally connect with audiences.
             </p>
           </div>
 
