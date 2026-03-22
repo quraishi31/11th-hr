@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from 'react'
 import { Navigation } from './navigation'
 
 const images = [
-  'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=1080&fit=crop',
-  'https://images.unsplash.com/photo-1552664730-d307ca884979?w=1920&h=1080&fit=crop',
-  'https://images.unsplash.com/photo-1552664730-d307ca884980?w=1920&h=1080&fit=crop',
-  'https://images.unsplash.com/photo-1552664730-d307ca884981?w=1920&h=1080&fit=crop',
+  'https://b8axupjguy.ufs.sh/f/mclzbYUnWM5pUft8UBoduQRG6tKoPEy5aFXcsJelTw7NLpiq?w=1920&h=1080&fit=crop',
+  'https://b8axupjguy.ufs.sh/f/mclzbYUnWM5pJ8mWyDZLQpg5Wjkz07UlmcN4HFuAEOoheYq2?w=1920&h=1080&fit=crop',
+  'https://b8axupjguy.ufs.sh/f/mclzbYUnWM5pQhfhfGN37AU94lSdTK2itRVMQyowcIjzarBf?w=1920&h=1080&fit=crop',
+  'https://b8axupjguy.ufs.sh/f/mclzbYUnWM5pEpTBm6yqGrBwhUSQTRLgbjaYCZXs67oWm21D?w=1920&h=1080&fit=crop',
 ]
 
 export function HeroCarousel() {
