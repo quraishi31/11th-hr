@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Import Source Sans 3 from Google Fonts */
-
 /* Performance optimizations */
 * {
+  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -16,7 +14,8 @@ html {
 }
 
 body {
-  font-family: 'Source Sans 3', Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+  background: #050505;
 }
 
 /* Optimize images and animations */
@@ -35,6 +34,56 @@ img {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .section-shell {
+    @apply relative overflow-hidden;
+  }
+
+  .section-shell::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 18%);
+    opacity: 1;
+  }
+
+  .section-frame {
+    @apply relative mx-auto w-full max-w-7xl px-6 md:px-10 lg:px-12;
+  }
+
+  .premium-panel {
+    @apply rounded-[28px] border border-white/10 bg-[#0a0a0a];
+  }
+
+  .section-kicker {
+    @apply text-xs font-semibold uppercase tracking-[0.35em] text-white/55;
+  }
+
+  .hero-glow {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0));
+  }
+
+  .font-display {
+    font-family: var(--font-display), Arial, sans-serif;
+  }
+
+  .display-title {
+    font-family: var(--font-display), Arial, sans-serif;
+    letter-spacing: -0.055em;
+    line-height: 0.92;
+  }
+
+  .section-title {
+    font-family: var(--font-display), Arial, sans-serif;
+    letter-spacing: -0.045em;
+    line-height: 0.95;
+  }
+
+  .lead-copy {
+    letter-spacing: -0.005em;
+    line-height: 1.7;
   }
 }
 
@@ -116,5 +165,10 @@ img {
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  ::selection {
+    background: rgba(0, 212, 190, 0.3);
+    color: white;
   }
 }

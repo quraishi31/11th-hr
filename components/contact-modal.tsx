@@ -1,15 +1,12 @@
 'use client'
 
-import React from "react"
-
-import { useState } from 'react'
-import { Mail, Phone, MapPin } from 'lucide-react'
+import { Mail, MapPin, Phone } from 'lucide-react'
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogDescription,
 } from '@/components/ui/dialog'
 
 interface ContactModalProps {
@@ -17,170 +14,93 @@ interface ContactModalProps {
   onClose: () => void
 }
 
+const contactItems = [
+  {
+    icon: Mail,
+    label: 'Email',
+    value: 'hello@11thhour.pk',
+    href: 'mailto:hello@11thhour.pk',
+  },
+  {
+    icon: Phone,
+    label: 'Phone',
+    value: '+92 300 1234567',
+    href: 'tel:+923001234567',
+  },
+  {
+    icon: MapPin,
+    label: 'Office',
+    value: 'Pakistan',
+    href: '#',
+  },
+]
+
 export function ContactModal({ isOpen, onClose }: ContactModalProps) {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  })
-
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    setTimeout(() => {
-      console.log('Form submitted:', formData)
-      setIsSubmitting(false)
-      setFormData({ name: '', email: '', message: '' })
-      onClose()
-    }, 1500)
-  }
-
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl border-white/20 bg-black p-4 sm:p-6 md:p-8">
-        <DialogHeader>
-          <DialogTitle className="text-2xl md:text-3xl text-white">
-            Get In Touch
+      <DialogContent className="max-w-3xl border-white/20 bg-[#0a0a0a] p-5 sm:p-7 md:p-9">
+        <DialogHeader className="border-b border-white/10 pb-5 text-left">
+          <DialogTitle className="section-title text-4xl font-semibold text-white md:text-5xl">
+            Contact Information
           </DialogTitle>
-          <DialogDescription className="text-sm md:text-base text-white/60 mt-2">
-            We'd love to hear from you. Let's start a conversation.
+          <DialogDescription className="lead-copy mt-3 max-w-2xl text-sm text-white/60 md:text-base">
+            Reach out directly through the details below for activations, events, gifting, and digital campaign inquiries.
           </DialogDescription>
         </DialogHeader>
 
-        {/* Two column layout - responsive */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-6">
-          {/* Contact Information */}
-          <div className="space-y-6">
-            <h3 className="text-lg md:text-xl font-semibold text-white">
-              Contact Information
-            </h3>
+        <div className="mt-7 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+          <div className="rounded-[24px] border border-white/10 bg-white/[0.03] p-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/45">
+              11th Hour
+            </p>
+            <p className="mt-4 text-2xl font-semibold text-white">
+              Let’s talk about your next event, activation, or campaign.
+            </p>
+            <p className="lead-copy mt-4 text-sm text-white/65 md:text-base">
+              We help brands create polished experiences through event management, corporate gifting, and digital execution.
+            </p>
 
-            {/* Email */}
-            <div className="flex gap-4">
-              <div className="flex-shrink-0">
-                <Mail className="w-5 h-5 md:w-6 md:h-6 text-primary mt-1" />
+            <div className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10">
+              <div className="bg-[#0a0a0a] px-4 py-4">
+                <p className="text-xs uppercase tracking-[0.26em] text-white/45">Availability</p>
+                <p className="mt-2 text-sm text-white">Monday to Saturday</p>
               </div>
-              <div className="min-w-0">
-                <p className="text-xs md:text-sm text-white/60 mb-1">Email</p>
-                <a
-                  href="mailto:hello@pico.com"
-                  className="text-sm md:text-base text-white hover:text-cyan-400 transition-colors break-all"
-                >
-                  hello@pico.com
-                </a>
-              </div>
-            </div>
-
-            {/* Phone */}
-            <div className="flex gap-4">
-              <div className="flex-shrink-0">
-                <Phone className="w-5 h-5 md:w-6 md:h-6 text-primary mt-1" />
-              </div>
-              <div className="min-w-0">
-                <p className="text-xs md:text-sm text-white/60 mb-1">Phone</p>
-                <a
-                  href="tel:+1234567890"
-                  className="text-sm md:text-base text-white hover:text-cyan-400 transition-colors"
-                >
-                  +1 (234) 567-890
-                </a>
-              </div>
-            </div>
-
-            {/* Address */}
-            <div className="flex gap-4">
-              <div className="flex-shrink-0">
-                <MapPin className="w-5 h-5 md:w-6 md:h-6 text-primary mt-1" />
-              </div>
-              <div>
-                <p className="text-xs md:text-sm text-white/60 mb-1">
-                  Global Offices
-                </p>
-                <p className="text-sm md:text-base text-white">36 cities worldwide</p>
+              <div className="bg-[#0a0a0a] px-4 py-4">
+                <p className="text-xs uppercase tracking-[0.26em] text-white/45">Best for</p>
+                <p className="mt-2 text-sm text-white">Brand activations, events, digital campaigns</p>
               </div>
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-xs md:text-sm font-medium text-white mb-2"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-3 md:px-4 py-2 text-sm md:text-base bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-primary focus:bg-white/10 transition-all duration-300"
-                  placeholder="Your name"
-                />
-              </div>
+          <div className="space-y-4">
+            {contactItems.map((item) => {
+              const Icon = item.icon
+              const content = (
+                <div className="flex items-start gap-4 rounded-[22px] border border-white/10 bg-white/[0.03] p-5 transition-colors duration-300 hover:bg-white/[0.05]">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05] text-white">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/45">
+                      {item.label}
+                    </p>
+                    <p className="mt-2 break-words text-lg font-medium text-white">
+                      {item.value}
+                    </p>
+                  </div>
+                </div>
+              )
 
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-xs md:text-sm font-medium text-white mb-2"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-3 md:px-4 py-2 text-sm md:text-base bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-primary focus:bg-white/10 transition-all duration-300"
-                  placeholder="your@email.com"
-                />
-              </div>
+              if (item.href === '#') {
+                return <div key={item.label}>{content}</div>
+              }
 
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-xs md:text-sm font-medium text-white mb-2"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={3}
-                  className="w-full px-3 md:px-4 py-2 text-sm md:text-base bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-cyan-400 focus:bg-white/10 transition-all duration-300 resize-none"
-                  placeholder="Tell us about your project..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full px-4 md:px-6 py-2 md:py-3 text-sm md:text-base bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95"
-              >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </button>
-            </form>
+              return (
+                <a key={item.label} href={item.href} className="block">
+                  {content}
+                </a>
+              )
+            })}
           </div>
         </div>
       </DialogContent>

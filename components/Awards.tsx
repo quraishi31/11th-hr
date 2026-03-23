@@ -1,136 +1,67 @@
-"use client";
+'use client'
 
-import React from "react";
-import { cn } from "@/lib/utils"; // Standard Shadcn utility
+import Image, { StaticImageData } from 'next/image'
 
-// 1. DATA: The content from your image
-const AWARDS = [
-    {
-        id: 1,
-        title: "Marketing-Interactive's MARKies 2024 in Singapore",
-        subtitle: "Cause (Silver); Most Creative",
-        logoText: "MARKies", // Placeholder for logo image
-    },
-    {
-        id: 2,
-        title: "Event Marketer Magazine's The 2024 Ex Awards",
-        subtitle: "Best Trade Show Exhibit Under 50x50",
-        logoText: "ex AWARDS",
-    },
-    {
-        id: 3,
-        title: "Ad Age A-List & Creativity Awards 2024",
-        subtitle: "Best Use of TikTok award",
-        logoText: "Ad Age",
-    },
-    {
-        id: 4,
-        title: "Event Marketing Awards 2024",
-        subtitle: "Best Gamification (Bronze)",
-        logoText: "EM",
-    },
-    {
-        id: 5,
-        title: "2025 Eventex Awards",
-        subtitle: "Eventex Index: Top 100 Agencies & Event Organisers",
-        logoText: "EVENTEX",
-    },
-    {
-        id: 6,
-        title: "Bureau International des Expositions",
-        subtitle: "Pavillion Design Gold",
-        logoText: "BIE",
-    },
-];
+import client1 from '@/assets/WhatsApp Image 2026-03-23 at 5.50.09 AM.jpeg'
+import client2 from '@/assets/WhatsApp Image 2026-03-23 at 5.50.10 AM.jpeg'
+import client3 from '@/assets/WhatsApp Image 2026-03-23 at 5.50.10 AM (1).jpeg'
+import client4 from '@/assets/WhatsApp Image 2026-03-23 at 5.50.10 AM (2).jpeg'
+import client5 from '@/assets/WhatsApp Image 2026-03-23 at 5.50.10 AM (3).jpeg'
+import client6 from '@/assets/WhatsApp Image 2026-03-23 at 5.50.10 AM (4).jpeg'
+import client7 from '@/assets/WhatsApp Image 2026-03-23 at 5.50.10 AM (5).jpeg'
+import client8 from '@/assets/WhatsApp Image 2026-03-23 at 5.50.10 AM (6).jpeg'
+import client9 from '@/assets/WhatsApp Image 2026-03-23 at 5.50.10 AM (7).jpeg'
+
+type Client = {
+  name: string
+  image: StaticImageData
+}
+
+const clients: Client[] = [
+  { name: 'Client 1', image: client1 },
+  { name: 'Client 2', image: client2 },
+  { name: 'Client 3', image: client3 },
+  { name: 'Client 4', image: client4 },
+  { name: 'Client 5', image: client5 },
+  { name: 'Client 6', image: client6 },
+  { name: 'Client 7', image: client7 },
+  { name: 'Client 8', image: client8 },
+  { name: 'Client 9', image: client9 },
+]
+
+function ClientCard({ client }: { client: Client }) {
+  return (
+    <div className="group rounded-[16px] border border-white/10 bg-[#0b0b0b] p-1.5 transition-colors duration-300 hover:border-white/20 hover:bg-[#101010]">
+      <div className="relative flex aspect-[1.55] items-center justify-center overflow-hidden rounded-[12px] bg-white p-2 shadow-[0_10px_22px_rgba(0,0,0,0.14)]">
+        <Image
+          src={client.image}
+          alt={client.name}
+          fill
+          className="object-contain p-2"
+          sizes="(max-width: 768px) 40vw, 120px"
+        />
+      </div>
+    </div>
+  )
+}
 
 export default function AwardsMarquee() {
-    return (
-        <section className= "w-full bg-black py-20 overflow-hidden text-white relative" >
+  return (
+    <section className="relative bg-black py-24 text-white">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="section-kicker">Our Clients</p>
+          <h2 className="section-title mt-4 text-5xl font-semibold text-white md:text-6xl">
+            Brands we’ve worked with.
+          </h2>
+        </div>
 
-        {/* 2. HEADER: The 'Awards' title with the Teal Bracket */ }
-        < div className = "container mx-auto px-6 mb-12" >
-            <div className="relative inline-block pl-6" >
-                {/* The Teal Bracket Accent */ }
-                < div className = "absolute left-0 top-1 bottom-1 w-4 border-l-[4px] border-b-[4px] border-[#00C4B4] rounded-bl-md" />
-                    <h2 className="text-4xl font-normal tracking-wide text-white" >
-                        Awards
-                        </h2>
-                        </div>
-                        </div>
-
-    {/* 3. MARQUEE CONTAINER */ }
-    {/* mask-image creates a subtle fade on the edges (optional, remove if you want hard edges) */ }
-    <div className="relative w-full flex overflow-hidden mask-gradient" >
-
-        {/* THE TRACK: We render the list TWICE to create the infinite loop */ }
-        < div className = "flex animate-marquee hover:[animation-play-state:paused] w-max" >
-
-            {/* Set 1 */ }
-            < div className = "flex gap-6 px-3" >
-            {
-                AWARDS.map((award) => (
-                    <AwardCard key= {`a-${award.id}`} data = { award } />
-            ))
-}
-</div>
-
-{/* Set 2 (Duplicate for seamless loop) */ }
-<div className="flex gap-6 px-3" >
-{
-    AWARDS.map((award) => (
-        <AwardCard key= {`b-${award.id}`} data = { award } />
-            ))}
-</div>
-
-    </div>
-    </div>
-
-{/* 4. CUSTOM STYLES for the animation */ }
-{/* You can move this to your tailwind.config.js or global.css if preferred */ }
-<style jsx global > {`
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-          animation: marquee 30s linear infinite;
-        }
-      `}</style>
+        <div className="mt-12 grid gap-3 sm:grid-cols-3 lg:grid-cols-5">
+          {clients.map((client) => (
+            <ClientCard key={client.name} client={client} />
+          ))}
+        </div>
+      </div>
     </section>
-  );
-}
-
-// 5. CARD COMPONENT
-// Extracted for cleanliness
-function AwardCard({ data }: { data: typeof AWARDS[0] }) {
-    return (
-        <div
-      className= {
-            cn(
-        "flex flex-col flex-shrink-0",
-        "w-[320px] h-[400px] p-6 rounded-2xl",
-        "bg-[#00C4B4] text-white", // The Exact Teal Color
-        "transition-transform duration-300 hover:-translate-y-2" // Hover lift effect
-            )
-        }
-        >
-        {/* Logo Area (White Box) */ }
-        < div className = "bg-white w-full h-48 rounded-lg mb-6 flex items-center justify-center overflow-hidden" >
-            {/* Replace this div with an <img /> tag for real logos */ }
-            < span className = "text-black font-bold text-2xl opacity-80 uppercase text-center px-4" >
-                { data.logoText }
-                </span>
-                </div>
-
-    {/* Text Content */ }
-    <div className="flex flex-col gap-2" >
-        <h3 className="text-lg font-bold leading-snug line-clamp-3" >
-            { data.title }
-            </h3>
-            < p className = "text-sm text-white/90 font-normal leading-relaxed" >
-                { data.subtitle }
-                </p>
-                </div>
-                </div>
-  );
+  )
 }

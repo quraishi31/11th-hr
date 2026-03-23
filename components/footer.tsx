@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Linkedin, Facebook, Twitter, Instagram, Youtube, ArrowUp } from 'lucide-react'
+import { ArrowUp, Facebook, Instagram, Linkedin, Twitter, Youtube } from 'lucide-react'
 import { Logo } from './Logo'
 
 export function Footer() {
@@ -18,55 +18,63 @@ export function Footer() {
   ]
 
   return (
-    <footer className="relative px-4 py-8 md:px-8 md:py-12 bg-black border-t-[0.4px]" id='footer'>
+    <footer className="relative border-t border-white/10 bg-black px-4 py-10 md:px-8 md:py-14" id="footer">
       <div className="mx-auto max-w-7xl">
-        {/* Main content - flex layout for logo/text on left, socials on right */}
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 md:gap-8 mb-6">
-          {/* Left side - Logo and description */}
-          <div className="flex flex-col gap-4 max-w-2xl">
-            {/* Logo */}
+        <div className="mb-10 grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(260px,0.85fr)] lg:items-start">
+          <div className="flex max-w-2xl flex-col gap-5">
             <div className="flex items-center gap-3">
-              <Logo />
+              <Logo className="h-14 w-auto md:h-16" />
             </div>
 
-            {/* Description */}
-            <p className="text-base md:text-lg text-white leading-relaxed max-w-xl">
+            <p className="max-w-[16rem] text-xs font-semibold uppercase tracking-[0.32em] text-white/45">
+              Brand activation, events, gifting, and digital campaigns
+            </p>
+
+            <p className="lead-copy max-w-2xl text-base text-white/84 md:text-lg">
               11Th Hour activates brands by using a strategic combination of experience design, brand engagement and digital enablement to create extraordinary experiences that emotionally connect with audiences.
             </p>
           </div>
 
-          {/* Right side - Social icons */}
-          <div className="flex flex-wrap gap-4 md:gap-3">
-            {socialLinks.map((social) => {
-              const Icon = social.icon
-              return (
-                <Link
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white transition-all duration-300 hover:bg-white/40 hover:scale-110"
-                >
-                  <Icon className="h-5 w-5" />
-                </Link>
-              )
-            })}
+          <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-6 md:p-7">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/45">
+              Follow 11th Hour
+            </p>
+            <div className="mt-5 flex flex-wrap gap-3">
+              {socialLinks.map((social) => {
+                const Icon = social.icon
+                return (
+                  <Link
+                    key={social.label}
+                    href={social.href}
+                    aria-label={social.label}
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/[0.12]"
+                  >
+                    <Icon className="h-5 w-5" />
+                  </Link>
+                )
+              })}
+            </div>
+
+            <div className="mt-8 border-t border-white/10 pt-5">
+              <p className="text-sm font-medium text-white/72">
+                Creating polished brand experiences that feel premium at every touchpoint.
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* Copyright and Back to Top */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pt-6">
-          <p className="text-sm text-white/80">
+        <div className="flex flex-col gap-4 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
+          <p className="text-sm tracking-[0.08em] text-white/70">
             © Copyright 2026 11th Hour. All Rights Reserved.
           </p>
 
-          {/* Back to Top Button */}
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-2 text-white hover:text-white/80 transition-all duration-300 self-start md:self-auto"
+            className="self-start flex items-center gap-2 text-white/85 transition-all duration-300 hover:text-white md:self-auto"
             aria-label="Back to Top"
           >
             <span className="text-sm">Back to Top</span>
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20 hover:bg-white/30 transition-colors">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] transition-colors hover:bg-white/[0.12]">
               <ArrowUp className="h-4 w-4" />
             </div>
           </button>

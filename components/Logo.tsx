@@ -1,47 +1,46 @@
+import { useId } from 'react'
 
+export function Logo({ className = 'h-14 w-auto' }: { className?: string }) {
+  const gradientId = useId()
 
-export function Logo({ className = "h-14 w-auto" }: { className?: string }) {
-    return (
-        <svg
-            viewBox="0 0 420 120"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className={className}
-        >
-            <defs>
-                <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style={{ stopColor: '#00c2a5', stopOpacity: 1 }} />
-                    <stop offset="100%" style={{ stopColor: '#00e0c0', stopOpacity: 1 }} />
-                </linearGradient>
-            </defs>
+  return (
+    <svg
+      viewBox="0 0 420 120"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-label="11th Hour"
+      role="img"
+    >
+      <defs>
+        <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style={{ stopColor: '#00c2a5', stopOpacity: 1 }} />
+          <stop offset="100%" style={{ stopColor: '#00e0c0', stopOpacity: 1 }} />
+        </linearGradient>
+      </defs>
 
-            {/* Icon background */}
-            <rect x="20" y="25" rx="14" ry="14" width="70" height="70" fill="url(#logo-grad)" />
+      <rect x="18" y="22" rx="18" ry="18" width="76" height="76" fill={`url(#${gradientId})`} />
+      <rect x="40" y="38" width="7" height="43" fill="white" />
+      <rect x="58" y="38" width="7" height="43" fill="white" />
+      <path
+        d="M34 68 A28 28 0 0 1 78 68"
+        stroke="white"
+        strokeWidth="3.2"
+        fill="none"
+        strokeLinecap="round"
+      />
 
-            {/* Stylized 11 */}
-            <rect x="40" y="40" width="6" height="40" fill="white" />
-            <rect x="55" y="40" width="6" height="40" fill="white" />
-
-            {/* Subtle clock arc */}
-            <path
-                d="M35 65 A25 25 0 0 1 75 65"
-                stroke="white"
-                strokeWidth="3"
-                fill="none"
-                strokeLinecap="round"
-            />
-
-            {/* Brand text - changed fill to white for the dark nav */}
-            {/* <text
-                x="110"
-                y="75"
-                fontFamily="Poppins, Arial, sans-serif"
-                fontSize="44"
-                fontWeight="600"
-                fill="white"
-            >
-                11th Hour
-            </text> */}
-        </svg>
-    )
+      <text
+        x="122"
+        y="64"
+        fontFamily="Sora, Arial, sans-serif"
+        fontSize="38"
+        fontWeight="700"
+        letterSpacing="6"
+        fill="white"
+      >
+        11TH HOUR
+      </text>
+    </svg>
+  )
 }

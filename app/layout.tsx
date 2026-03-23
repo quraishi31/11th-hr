@@ -1,27 +1,33 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
-import { Source_Sans_3 } from 'next/font/google'
+import { Manrope, Sora } from 'next/font/google'
 
 import './globals.css'
 
-const sourceSans = Source_Sans_3({
+const manrope = Manrope({
   subsets: ['latin'],
-  weight: ['300', '400', '600', '700'],
-  variable: '--font-source-sans',
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-body',
+  display: 'swap',
+})
+
+const sora = Sora({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-display',
   display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: 'Pico - Global Brand Activation Agency',
+  title: '11th Hour - Brand Activation & Experience Agency',
   description:
-    'Shaping Brand Moments Across The Globe. A global communications and brand activation agency with offices in 36 cities, blending local expertise with worldwide vision.',
+    '11th Hour delivers brand activations, events, corporate gifting, and digital campaigns with a polished, experience-led approach.',
   keywords: [
     'brand activation',
     'communications strategy',
     'brand strategy',
     'experience design',
   ],
-  generator: 'v0.app',
 }
 
 export const viewport: Viewport = {
@@ -38,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${sourceSans.variable} font-sans antialiased`} style={{ backgroundColor: '#000000' }}>
+      <body className={`${manrope.variable} ${sora.variable} font-sans antialiased`} style={{ backgroundColor: '#000000' }}>
         {children}
       </body>
     </html>

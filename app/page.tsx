@@ -9,13 +9,13 @@ import { WhyChooseUs } from '@/components/WhyChooseUs'
 export default function Page() {
   return (
     <>
-      <main className="min-h-screen" style={{ backgroundColor: '#000000' }}>
+      <main className="min-h-screen bg-transparent">
         <HeroCarousel />
         <WeArePico />
         <WorksSlider />
         <WhyChooseUs />
         <ContactCTA />
-        {/* <AwardsMarquee /> */}
+        <AwardsMarquee />
       </main>
       <Footer />
     </>
