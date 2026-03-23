@@ -28,7 +28,7 @@ export function HeroCarousel() {
   }, [])
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-black font-sans">
+    <section className="relative h-screen w-full overflow-hidden bg-black font-sans" id='Home' >
       {/* Navigation */}
       <div className="absolute top-0 left-0 right-0 z-50">
         <Navigation />

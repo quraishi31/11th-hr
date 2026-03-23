@@ -65,7 +65,7 @@ export default function WorksSlider() {
   )  
 
   return (
-    <section className="w-full bg-black py-12 pl-4 md:pl-12">
+    <section className="w-full bg-black py-12 pl-4 md:pl-12" id="works">
       <Carousel
         plugins={[plugin.current]}
         opts={{

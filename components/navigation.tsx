@@ -19,10 +19,10 @@ export function Navigation() {
   }, [handleScroll])
 
   const navItems = [
-    { label: 'Home', href: '#' },
-    { label: 'Why 11th', href: '#' },
-    { label: 'Portfolio', href: '#' },
-    { label: 'Contact Us', href: '#' },
+    { label: 'Home', href: '#Home' },
+    { label: 'Why 11th', href: '#Why11' },
+    { label: 'Portfolio', href: '#works' },
+    { label: 'Contact Us', href: '#footer' },
   ]
 
   return (

@@ -12,9 +12,9 @@ export default function Page() {
       <main className="min-h-screen" style={{ backgroundColor: '#000000' }}>
         <HeroCarousel />
         <WeArePico />
+        <WorksSlider />
         <WhyChooseUs />
         <ContactCTA />
-        <WorksSlider />
         <AwardsMarquee />
       </main>
       <Footer />
