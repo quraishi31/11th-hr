@@ -1,6 +1,6 @@
 
 
-export function Logo({ className = "h-10 w-auto" }: { className?: string }) {
+export function Logo({ className = "h-14 w-auto" }: { className?: string }) {
     return (
         <svg
             viewBox="0 0 420 120"
@@ -32,7 +32,7 @@ export function Logo({ className = "h-10 w-auto" }: { className?: string }) {
             />
 
             {/* Brand text - changed fill to white for the dark nav */}
-            <text
+            {/* <text
                 x="110"
                 y="75"
                 fontFamily="Poppins, Arial, sans-serif"
@@ -41,7 +41,7 @@ export function Logo({ className = "h-10 w-auto" }: { className?: string }) {
                 fill="white"
             >
                 11th Hour
-            </text>
+            </text> */}
         </svg>
     )
 }

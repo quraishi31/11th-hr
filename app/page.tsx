@@ -15,7 +15,7 @@ export default function Page() {
         <WorksSlider />
         <WhyChooseUs />
         <ContactCTA />
-        <AwardsMarquee />
+        {/* <AwardsMarquee /> */}
       </main>
       <Footer />
     </>

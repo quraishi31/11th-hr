@@ -18,7 +18,7 @@ export function Footer() {
   ]
 
   return (
-    <footer className="relative px-4 py-8 md:px-8 md:py-12 bg-primary" id='footer'>
+    <footer className="relative px-4 py-8 md:px-8 md:py-12 bg-black border-t-[0.4px]" id='footer'>
       <div className="mx-auto max-w-7xl">
         {/* Main content - flex layout for logo/text on left, socials on right */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 md:gap-8 mb-6">
