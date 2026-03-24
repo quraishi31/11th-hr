@@ -37,10 +37,15 @@ const contactItems = [
 
 export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-3xl border-white/20 bg-[#0a0a0a] p-5 sm:p-7 md:p-9">
+    <Dialog
+      open={isOpen}
+      onOpenChange={(open) => {
+        if (!open) onClose()
+      }}
+    >
+      <DialogContent className="max-h-[90dvh] w-[calc(100vw-1.5rem)] max-w-3xl overflow-y-auto border-white/20 bg-[#0a0a0a] p-4 sm:p-7 md:p-9">
         <DialogHeader className="border-b border-white/10 pb-5 text-left">
-          <DialogTitle className="section-title text-4xl font-semibold text-white md:text-5xl">
+          <DialogTitle className="section-title pr-10 text-3xl font-semibold text-white sm:text-4xl md:text-5xl">
             Contact Information
           </DialogTitle>
           <DialogDescription className="lead-copy mt-3 max-w-2xl text-sm text-white/60 md:text-base">
@@ -49,7 +54,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
         </DialogHeader>
 
         <div className="mt-7 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="rounded-[24px] border border-white/10 bg-white/[0.03] p-6">
+          <div className="rounded-[24px] border border-white/10 bg-white/[0.03] p-5 sm:p-6">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/45">
               11th Hour
             </p>
@@ -76,7 +81,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             {contactItems.map((item) => {
               const Icon = item.icon
               const content = (
-                <div className="flex items-start gap-4 rounded-[22px] border border-white/10 bg-white/[0.03] p-5 transition-colors duration-300 hover:bg-white/[0.05]">
+                <div className="flex items-start gap-4 rounded-[22px] border border-white/10 bg-white/[0.03] p-4 sm:p-5 transition-colors duration-300 hover:bg-white/[0.05]">
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05] text-white">
                     <Icon className="h-5 w-5" />
                   </div>

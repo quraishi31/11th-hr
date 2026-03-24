@@ -18,6 +18,17 @@ export function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [handleScroll])
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsMobileMenuOpen(false)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   const navItems = [
     { label: 'Home', href: '#Home' },
     { label: 'Why 11th', href: '#Why11' },
@@ -29,7 +40,9 @@ export function Navigation() {
     <nav className="fixed top-0 left-0 right-0 z-50 px-3 py-3 transition-all duration-300">
       <div className="mx-auto w-full md:w-[90%] lg:w-3/4">
         <div
-          className={`relative rounded-full border transition-all duration-300 px-4 py-3 backdrop-blur-2xl md:px-6 ${isScrolled
+          className={`relative border px-4 py-3 backdrop-blur-2xl transition-all duration-300 md:px-6 ${
+            isMobileMenuOpen ? 'rounded-[28px]' : 'rounded-full'
+          } ${isScrolled
             ? 'border-white/20 bg-white/10 shadow-lg shadow-primary/10'
             : 'border-white/10 bg-white/5'
             }`}
@@ -58,6 +71,7 @@ export function Navigation() {
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="rounded-full p-2 text-white/80 transition-all duration-300 hover:bg-white/10 hover:text-white md:hidden"
                 aria-label="Toggle menu"
+                aria-expanded={isMobileMenuOpen}
               >
                 {isMobileMenuOpen ? (
                   <X className="h-6 w-6" />
@@ -70,20 +84,20 @@ export function Navigation() {
           </div>
 
           {isMobileMenuOpen && (
-            <div className="mt-4 border-t border-white/10 pt-4 animate-slide-down md:hidden">
+            <div className="animate-slide-down mt-4 border-t border-white/10 pt-4 md:hidden">
               <div className="flex flex-col gap-3">
                 {navItems.map((item) => (
                   <Link
                     key={item.label}
                     href={item.href}
-                    className="rounded-lg px-4 py-2 text-white/80 transition-all duration-300 hover:bg-white/100"
+                    className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white/80 transition-all duration-300 hover:bg-white/10 hover:text-white"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.label}
                   </Link>
                 ))}
-                <div className="px-4 py-2 pt-3 border-t border-white/10">
-                  <button className="flex w-full items-center justify-center gap-1 rounded-full border border-transparent px-3 py-1 text-sm font-medium text-white/80 transition-all duration-300 hover:border-primary/50 hover:bg-white/10 hover:text-primary">
+                <div className="border-t border-white/10 px-1 pt-3">
+                  <button className="flex w-full items-center justify-center gap-1 rounded-2xl border border-white/10 bg-white/[0.03] px-3 py-3 text-sm font-medium text-white/80 transition-all duration-300 hover:bg-white/10 hover:text-white">
                     EN
                     <ChevronDown className="h-4 w-4" />
                   </button>
