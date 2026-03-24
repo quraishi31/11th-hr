@@ -50,13 +50,18 @@ export default function AwardsMarquee() {
     <section className="relative bg-black py-24 text-white">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="section-kicker">Our Clients</p>
-          <h2 className="section-title mt-4 text-5xl font-semibold text-white md:text-6xl">
+          {/* Removed "Our Clients" kicker */}
+          <h2 className="section-title text-5xl font-semibold text-white md:text-6xl">
             Brands we’ve worked with.
           </h2>
+          {/* New descriptive text added below */}
+          <p className="mt-6 text-lg leading-8 text-gray-400">
+            From industry leaders to emerging startups, we partner with visionaries 
+            to build digital experiences that push boundaries and define the future.
+          </p>
         </div>
 
-        <div className="mt-12 grid gap-3 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="mt-16 grid gap-4 sm:grid-cols-3 lg:grid-cols-5">
           {clients.map((client) => (
             <ClientCard key={client.name} client={client} />
           ))}
