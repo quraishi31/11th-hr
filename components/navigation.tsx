@@ -40,12 +40,13 @@ export function Navigation() {
     <nav className="fixed top-0 left-0 right-0 z-50 px-3 py-3 transition-all duration-300">
       <div className="mx-auto w-full md:w-[90%] lg:w-3/4">
         <div
-          className={`relative border px-4 py-3 backdrop-blur-2xl transition-all duration-300 md:px-6 ${
-            isMobileMenuOpen ? 'rounded-[28px]' : 'rounded-full'
-          } ${isScrolled
-            ? 'border-white/20 bg-white/10 shadow-lg shadow-primary/10'
-            : 'border-white/10 bg-white/5'
-            }`}
+          className={`relative overflow-hidden rounded-[28px] border px-4 py-3 backdrop-blur-2xl transition-[background-color,border-color,box-shadow,border-radius] duration-300 md:px-6 ${
+            isMobileMenuOpen ? 'md:rounded-[28px]' : 'md:rounded-full'
+          } ${
+            isScrolled || isMobileMenuOpen
+              ? 'border-white/20 bg-white/10 shadow-lg shadow-primary/10'
+              : 'border-white/10 bg-white/5'
+          }`}
         >
           <div className="flex items-center justify-between">
             <div className="flex flex-1 justify-start">

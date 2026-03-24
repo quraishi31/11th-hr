@@ -43,18 +43,18 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
         if (!open) onClose()
       }}
     >
-      <DialogContent className="max-h-[90dvh] w-[calc(100vw-1.5rem)] max-w-3xl overflow-y-auto border-white/20 bg-[#0a0a0a] p-4 sm:p-7 md:p-9">
-        <DialogHeader className="border-b border-white/10 pb-5 text-left">
-          <DialogTitle className="section-title pr-10 text-3xl font-semibold text-white sm:text-4xl md:text-5xl">
+      <DialogContent className="w-[calc(100vw-1rem)] max-w-3xl overflow-hidden border-white/20 bg-[#0a0a0a] p-4 sm:max-h-[90dvh] sm:overflow-y-auto sm:p-7 md:p-9">
+        <DialogHeader className="border-b border-white/10 pb-4 text-left sm:pb-5">
+          <DialogTitle className="section-title pr-10 text-[2rem] font-semibold text-white sm:text-4xl md:text-5xl">
             Contact Information
           </DialogTitle>
-          <DialogDescription className="lead-copy mt-3 max-w-2xl text-sm text-white/60 md:text-base">
+          <DialogDescription className="mt-2 max-w-2xl text-sm text-white/60 sm:mt-3 md:text-base">
             Reach out directly through the details below for activations, events, gifting, and digital campaign inquiries.
           </DialogDescription>
         </DialogHeader>
 
-        <div className="mt-7 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="rounded-[24px] border border-white/10 bg-white/[0.03] p-5 sm:p-6">
+        <div className="mt-4 space-y-4 sm:mt-7 sm:grid sm:gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:space-y-0">
+          <div className="hidden rounded-[24px] border border-white/10 bg-white/[0.03] p-5 sm:block sm:p-6">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/45">
               11th Hour
             </p>
@@ -77,19 +77,29 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             </div>
           </div>
 
-          <div className="space-y-4">
+          <div className="rounded-[24px] border border-white/10 bg-white/[0.03] p-3 sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0">
+            <div className="mb-3 sm:hidden">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-white/45">
+                11th Hour
+              </p>
+              <p className="mt-2 text-sm text-white/72">
+                Fastest way to reach us for events, activations, gifting, and digital work.
+              </p>
+            </div>
+
+            <div className="space-y-2.5 sm:space-y-4">
             {contactItems.map((item) => {
               const Icon = item.icon
               const content = (
-                <div className="flex items-start gap-4 rounded-[22px] border border-white/10 bg-white/[0.03] p-4 sm:p-5 transition-colors duration-300 hover:bg-white/[0.05]">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05] text-white">
-                    <Icon className="h-5 w-5" />
+                <div className="flex items-center gap-3 rounded-[18px] border border-white/10 bg-white/[0.03] px-3 py-3 transition-colors duration-300 hover:bg-white/[0.05] sm:items-start sm:gap-4 sm:rounded-[22px] sm:p-5">
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.05] text-white sm:h-11 sm:w-11 sm:rounded-2xl">
+                    <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/45">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/45 sm:text-xs sm:tracking-[0.28em]">
                       {item.label}
                     </p>
-                    <p className="mt-2 break-words text-lg font-medium text-white">
+                    <p className="mt-1 break-words text-base font-medium text-white sm:mt-2 sm:text-lg">
                       {item.value}
                     </p>
                   </div>
@@ -106,6 +116,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 </a>
               )
             })}
+            </div>
           </div>
         </div>
       </DialogContent>
