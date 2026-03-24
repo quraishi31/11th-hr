@@ -25,7 +25,7 @@ const worksData: WorkItem[] = [
     id: '1',
     title: 'Coca-Cola Play Nation',
     category: 'Case Study',
-    image: 'https://images.unsplash.com/photo-1554866585-cd94860890b7?q=80&w=1000&auto=format&fit=crop',
+    image: 'https://b8axupjguy.ufs.sh/f/mclzbYUnWM5pZwWZcuWrjkoNcbY0OCvMeD5UhBJlfLVmP1g2?q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: '2',
